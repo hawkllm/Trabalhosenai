@@ -1,0 +1,3826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Leo XIV - Educação Técnica Católica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Cores atualizadas - Técnico com vinho */
+        :root {
+            --vinho: #7a0039;
+            --vinho-escuro: #5a0029;
+            --vinho-claro: #9a0049;
+            --azul-tecnico: #0066A4;
+            --cinza-tecnico: #4A4A4A;
+            --cinza-claro: #F0F0F0;
+            --dourado: #D4AF37;
+            --branco: #FFFFFF;
+            --aguia: #1E88E5;
+            --lobo: #795548;
+            --tubarao: #F44336;
+            --gato: #FF9800;
+        }
+       
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+       
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-tecnico);
+            line-height: 1.6;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+       
+        /* Página de Login */
+        .login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(122, 0, 57, 0.85), rgba(0, 102, 164, 0.9)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+       
+        .login-container {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+       
+        .login-logo {
+            margin-bottom: 30px;
+        }
+       
+        .logo-technical {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+       
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--vinho), var(--azul-tecnico));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--branco);
+            font-size: 24px;
+            font-weight: bold;
+        }
+       
+        .logo-text h1 {
+            font-size: 2rem;
+            color: var(--vinho);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+       
+        .logo-text span {
+            color: var(--azul-tecnico);
+        }
+       
+        .logo-text p {
+            font-size: 1rem;
+            margin-top: 5px;
+            color: var(--cinza-tecnico);
+            font-weight: 500;
+        }
+       
+        .institutional-phrase {
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: inline-block;
+        }
+       
+        .login-form {
+            text-align: left;
+        }
+       
+        .form-group {
+            margin-bottom: 20px;
+        }
+       
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--cinza-tecnico);
+        }
+       
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+       
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--azul-tecnico);
+            outline: none;
+        }
+       
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, var(--vinho), var(--azul-tecnico));
+            color: var(--branco);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+       
+        .login-btn:hover {
+            background: linear-gradient(to right, var(--vinho-escuro), #005a8c);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+       
+        .login-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+       
+        .login-links a {
+            color: var(--azul-tecnico);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+       
+        .login-links a:hover {
+            color: var(--vinho);
+            text-decoration: underline;
+        }
+       
+        /* Página de Escolha de Curso */
+        .course-selection-page {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 102, 164, 0.9), rgba(122, 0, 57, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+       
+        .course-container {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+       
+        .course-container h2 {
+            color: var(--vinho);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+       
+        .course-container p {
+            margin-bottom: 30px;
+            color: var(--cinza-tecnico);
+        }
+       
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+       
+        .course-option {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: left;
+        }
+       
+        .course-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--azul-tecnico);
+        }
+       
+        .course-option.selected {
+            border-color: var(--vinho);
+            background-color: rgba(122, 0, 57, 0.05);
+        }
+       
+        .course-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--vinho), var(--azul-tecnico));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: var(--branco);
+            font-size: 20px;
+        }
+       
+        .course-option h3 {
+            color: var(--vinho);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+       
+        .course-option p {
+            font-size: 0.9rem;
+            color: var(--cinza-tecnico);
+            margin-bottom: 15px;
+        }
+       
+        .course-duration {
+            display: inline-block;
+            background-color: var(--dourado);
+            color: var(--vinho);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+       
+        /* Página de Análise de Perfil */
+        .profile-analysis-page {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(122, 0, 57, 0.85), rgba(0, 102, 164, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 40px 20px;
+        }
+       
+        .analysis-container {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+       
+        .analysis-progress {
+            margin-bottom: 30px;
+        }
+       
+        .progress-bar {
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+       
+        .progress {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(to right, var(--vinho), var(--azul-tecnico));
+            width: 0%;
+            transition: width 0.5s ease-in-out;
+        }
+       
+        .analysis-step {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+       
+        .analysis-step.active {
+            display: block;
+        }
+       
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+       
+        .analysis-step h3 {
+            color: var(--vinho);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+       
+        .analysis-step p {
+            margin-bottom: 30px;
+            color: var(--cinza-tecnico);
+        }
+       
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+       
+        .option-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+       
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--azul-tecnico);
+        }
+       
+        .option-card.selected {
+            border-color: var(--vinho);
+            background-color: rgba(122, 0, 57, 0.05);
+        }
+       
+        .option-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--azul-tecnico);
+        }
+       
+        .date-input {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+       
+        .date-input select {
+            width: 200px;
+        }
+       
+        .analysis-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+       
+        .profile-animal {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+       
+        .profile-title {
+            font-size: 2rem;
+            color: var(--vinho);
+            margin-bottom: 10px;
+        }
+       
+        .profile-description {
+            font-size: 1.1rem;
+            color: var(--cinza-tecnico);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+        .animal-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+       
+        .animal-stat {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 150px;
+        }
+       
+        .stat-aguia {
+            background-color: rgba(30, 136, 229, 0.1);
+            border: 2px solid var(--aguia);
+        }
+       
+        .stat-lobo {
+            background-color: rgba(121, 85, 72, 0.1);
+            border: 2px solid var(--lobo);
+        }
+       
+        .stat-tubarao {
+            background-color: rgba(244, 67, 54, 0.1);
+            border: 2px solid var(--tubarao);
+        }
+       
+        .stat-gato {
+            background-color: rgba(255, 152, 0, 0.1);
+            border: 2px solid var(--gato);
+        }
+       
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+       
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--cinza-tecnico);
+        }
+       
+        .completion-date {
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--dourado);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            display: inline-block;
+        }
+       
+        /* Página Principal (após login) */
+        .main-page {
+            display: none;
+        }
+       
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(to right, var(--vinho-escuro), var(--azul-tecnico));
+            color: var(--branco);
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            border-bottom: 4px solid var(--dourado);
+        }
+       
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+       
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+       
+        .header-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--vinho), var(--azul-tecnico));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--branco);
+            font-size: 18px;
+            font-weight: bold;
+        }
+       
+        .header-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+       
+        .header-text span {
+            color: var(--dourado);
+        }
+       
+        .header-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+       
+        .institutional-badge {
+            background-color: var(--dourado);
+            color: var(--vinho);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 3px;
+            display: inline-block;
+        }
+       
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+       
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+       
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 5px;
+            display: block;
+            font-size: 0.95rem;
+        }
+       
+        nav ul li a:hover {
+            color: var(--dourado);
+        }
+       
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--dourado);
+            transition: width 0.3s;
+        }
+       
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+       
+        .user-menu {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+       
+        .user-menu:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+       
+        .user-menu img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid var(--dourado);
+        }
+       
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--branco);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            min-width: 200px;
+            z-index: 1000;
+            margin-top: 10px;
+        }
+       
+        .user-dropdown.active {
+            display: block;
+        }
+       
+        .user-dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--cinza-tecnico);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+       
+        .user-dropdown a:hover {
+            background-color: var(--cinza-claro);
+            color: var(--vinho);
+        }
+       
+        .user-dropdown a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+       
+        /* Hero Section Técnica */
+        .hero {
+            background: linear-gradient(rgba(0, 102, 164, 0.85), rgba(122, 0, 57, 0.9)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--branco);
+            padding: 70px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+       
+        .hero h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 700;
+        }
+       
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+       
+        /* Conteúdo principal */
+        main {
+            padding: 30px 0;
+            min-height: calc(100vh - 140px);
+        }
+       
+        .page-title {
+            margin-bottom: 30px;
+            color: var(--vinho);
+            border-bottom: 2px solid var(--azul-tecnico);
+            padding-bottom: 10px;
+            display: inline-block;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+       
+        /* Cards Técnicos */
+        .card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--azul-tecnico);
+        }
+       
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+       
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(122, 0, 57, 0.1);
+        }
+       
+        .card-title {
+            color: var(--vinho);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+       
+        /* Grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+       
+        /* Dashboard */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+       
+        .stat-card {
+            background: linear-gradient(135deg, var(--azul-tecnico), var(--vinho));
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: var(--branco);
+            transition: transform 0.3s;
+        }
+       
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+       
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+       
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+       
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+       
+        /* Página de Chat com Professores */
+        #chat {
+            display: none;
+        }
+       
+        .chat-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            height: 70vh;
+        }
+       
+        .chat-sidebar {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            overflow-y: auto;
+        }
+       
+        .chat-sidebar h3 {
+            color: var(--vinho);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+       
+        .teacher-list {
+            list-style: none;
+        }
+       
+        .teacher-item {
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+            border: 2px solid transparent;
+        }
+       
+        .teacher-item:hover {
+            background-color: var(--cinza-claro);
+        }
+       
+        .teacher-item.active {
+            background-color: rgba(0, 102, 164, 0.1);
+            border-color: var(--azul-tecnico);
+        }
+       
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            float: left;
+            margin-right: 15px;
+            border: 2px solid var(--dourado);
+        }
+       
+        .teacher-info h4 {
+            color: var(--vinho);
+            margin-bottom: 5px;
+        }
+       
+        .teacher-info p {
+            font-size: 0.8rem;
+            color: var(--cinza-tecnico);
+        }
+       
+        .teacher-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+       
+        .status-online {
+            background-color: #4CAF50;
+        }
+       
+        .status-offline {
+            background-color: #9E9E9E;
+        }
+       
+        .status-away {
+            background-color: #FF9800;
+        }
+       
+        .chat-main {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+       
+        .chat-header {
+            padding: 20px;
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .chat-header h3 {
+            margin: 0;
+        }
+       
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+       
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            position: relative;
+        }
+       
+        .message-sent {
+            align-self: flex-end;
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            border-bottom-right-radius: 4px;
+        }
+       
+        .message-received {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            color: var(--cinza-tecnico);
+            border-bottom-left-radius: 4px;
+        }
+       
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: right;
+        }
+       
+        .chat-input {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+       
+        .chat-input textarea {
+            flex: 1;
+            resize: none;
+            min-height: 60px;
+            max-height: 120px;
+        }
+       
+        .chat-input button {
+            background-color: var(--vinho);
+            color: var(--branco);
+            border: none;
+            border-radius: 8px;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+       
+        .chat-input button:hover {
+            background-color: var(--vinho-escuro);
+        }
+       
+        /* Página de Edição de Perfil */
+        #edit-profile {
+            display: none;
+        }
+       
+        .profile-edit-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+       
+        .profile-edit-sidebar {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+       
+        .profile-edit-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid var(--dourado);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+       
+        .profile-edit-avatar:hover {
+            transform: scale(1.05);
+        }
+       
+        .avatar-upload {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+       
+        .avatar-upload input {
+            display: none;
+        }
+       
+        .profile-edit-nav {
+            list-style: none;
+        }
+       
+        .profile-edit-nav li {
+            margin-bottom: 10px;
+        }
+       
+        .profile-edit-nav a {
+            display: block;
+            padding: 12px 15px;
+            color: var(--cinza-tecnico);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+       
+        .profile-edit-nav a:hover {
+            background-color: var(--cinza-claro);
+            color: var(--vinho);
+        }
+       
+        .profile-edit-nav a.active {
+            background-color: rgba(0, 102, 164, 0.1);
+            color: var(--azul-tecnico);
+            font-weight: 600;
+        }
+       
+        .profile-edit-main {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+       
+        .edit-section {
+            display: none;
+        }
+       
+        .edit-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+       
+        .edit-section h3 {
+            color: var(--vinho);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+       
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+       
+        /* Seção de Desempenho Individual */
+        .performance-section {
+            margin: 50px 0;
+        }
+       
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+       
+        .skills-assessment {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+       
+        .skills-list {
+            margin-top: 20px;
+        }
+       
+        .skill-item {
+            margin-bottom: 25px;
+        }
+       
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+       
+        .skill-name {
+            font-weight: 600;
+            color: var(--vinho);
+        }
+       
+        .skill-level {
+            font-weight: 600;
+            color: var(--azul-tecnico);
+        }
+       
+        .skill-feedback {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--cinza-tecnico);
+        }
+       
+        .improvement-area {
+            background-color: #FFF9E6;
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+       
+        .strength-area {
+            background-color: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+       
+        .performance-summary {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+       
+        .summary-item {
+            margin-bottom: 20px;
+        }
+       
+        .summary-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--azul-tecnico);
+        }
+       
+        .summary-label {
+            font-size: 0.9rem;
+            color: var(--cinza-tecnico);
+        }
+       
+        .performance-chart {
+            margin-top: 20px;
+            text-align: center;
+        }
+       
+        .chart-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cinza-tecnico);
+            font-weight: 600;
+        }
+       
+        /* Página de Integração Empresarial */
+        #companies {
+            display: none;
+        }
+       
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+       
+        .company-card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+       
+        .company-card:hover {
+            transform: translateY(-5px);
+        }
+       
+        .company-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+       
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+       
+        .vacancies-list {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+       
+        .vacancy-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .vacancy-item:last-child {
+            border-bottom: none;
+        }
+       
+        .vacancy-info h4 {
+            color: var(--vinho);
+            margin-bottom: 8px;
+        }
+       
+        .vacancy-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+       
+        .vacancy-tag {
+            background-color: var(--cinza-claro);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+       
+        /* Página de Unidades Curriculares Detalhadas */
+        #detailed-courses {
+            display: none;
+        }
+       
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+       
+        .unit-card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+       
+        .unit-card:hover {
+            transform: translateY(-5px);
+        }
+       
+        .unit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+       
+        .unit-badge {
+            background-color: var(--dourado);
+            color: var(--vinho);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+       
+        .videos-list {
+            margin-top: 20px;
+        }
+       
+        .video-item {
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+       
+        .video-item:hover {
+            background-color: var(--cinza-claro);
+            border-color: var(--azul-tecnico);
+        }
+       
+        .video-item i {
+            color: var(--azul-tecnico);
+            margin-right: 10px;
+        }
+       
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+       
+        .btn:hover {
+            background-color: #005a8c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+       
+        .btn-vinho {
+            background-color: var(--vinho);
+        }
+       
+        .btn-vinho:hover {
+            background-color: var(--vinho-escuro);
+        }
+       
+        .btn-gold {
+            background-color: var(--dourado);
+            color: var(--vinho);
+        }
+       
+        .btn-gold:hover {
+            background-color: #c19b2c;
+        }
+       
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+       
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+       
+        .badge-completed {
+            background-color: #4CAF50;
+            color: white;
+        }
+       
+        .badge-pending {
+            background-color: #FF9800;
+            color: white;
+        }
+       
+        .badge-locked {
+            background-color: #9E9E9E;
+            color: white;
+        }
+       
+        /* Player de Vídeo */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+       
+        .video-container {
+            width: 80%;
+            max-width: 900px;
+            background-color: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+       
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+        }
+       
+        .video-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+       
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+       
+        .close-btn:hover {
+            color: var(--dourado);
+        }
+       
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+       
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+       
+        /* Rodapé Técnico */
+        footer {
+            background: linear-gradient(to right, var(--vinho-escuro), var(--azul-tecnico));
+            color: var(--branco);
+            padding: 40px 0 20px;
+        }
+       
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+       
+        .footer-section h3 {
+            color: var(--dourado);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+       
+        .footer-section ul {
+            list-style: none;
+        }
+       
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+       
+        .footer-section ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+       
+        .footer-section ul li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+       
+        .footer-section ul li a:hover {
+            color: var(--dourado);
+            padding-left: 5px;
+        }
+       
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+       
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+           
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+           
+            nav ul li {
+                margin: 8px 15px;
+            }
+           
+            .user-menu {
+                margin-top: 20px;
+            }
+           
+            .hero h2 {
+                font-size: 2rem;
+            }
+           
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+           
+            .chat-container {
+                grid-template-columns: 1fr;
+                height: 80vh;
+            }
+           
+            .profile-edit-container {
+                grid-template-columns: 1fr;
+            }
+           
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+           
+            .units-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+       
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+           
+            .dashboard-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+           
+            .hero {
+                padding: 50px 0;
+            }
+           
+            .video-container {
+                width: 95%;
+            }
+           
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+           
+            .date-input {
+                flex-direction: column;
+                align-items: center;
+            }
+           
+            .date-input select {
+                width: 100%;
+                max-width: 300px;
+            }
+           
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+           
+            .animal-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+           
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+       
+        @media (max-width: 576px) {
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+           
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+           
+            .header-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+           
+            nav ul li {
+                margin: 5px 10px;
+            }
+           
+            .login-container {
+                padding: 30px 20px;
+            }
+           
+            .course-container {
+                padding: 30px 20px;
+            }
+           
+            .analysis-container {
+                padding: 30px 20px;
+            }
+           
+            .chat-input {
+                flex-direction: column;
+            }
+           
+            .chat-input button {
+                width: 100%;
+                padding: 15px;
+            }
+           
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Página de Login -->
+    <div class="login-page" id="loginPage">
+        <div class="login-container">
+            <div class="login-logo">
+                <div class="logo-technical">
+                    <div class="logo-icon">L14</div>
+                    <div class="logo-text">
+                        <h1>COLEGIO <span>LEO XIV</span></h1>
+                        <p>Educação Técnica Católica</p>
+                        <div class="institutional-phrase">Instituição de referência com integração ao mercado</div>
+                    </div>
+                </div>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="matricula">Matrícula</label>
+                    <input type="text" id="matricula" placeholder="Digite sua matrícula" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="login-btn">Entrar no Portal</button>
+                <div class="login-links">
+                    <a href="#">Esqueci minha senha</a>
+                    <a href="#">Primeiro acesso?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Página de Escolha de Curso -->
+    <div class="course-selection-page" id="courseSelectionPage">
+        <div class="course-container">
+            <div class="logo-technical" style="justify-content: center; margin-bottom: 30px;">
+                <div class="logo-icon">L14</div>
+                <div class="logo-text">
+                    <h1>COLEGIO <span>LEO XIV</span></h1>
+                    <p>Educação Técnica Católica</p>
+                </div>
+            </div>
+           
+            <h2>Selecione seu Curso</h2>
+            <p>Escolha o curso técnico que você está realizando para personalizar sua experiência no portal.</p>
+           
+            <div class="courses-grid" id="coursesGrid">
+                <div class="course-option" data-course="seguranca" data-duration="18">
+                    <div class="course-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Técnico em Segurança do Trabalho</h3>
+                    <p>Formação completa para atuar na prevenção de acidentes e doenças ocupacionais.</p>
+                    <span class="course-duration">18 meses</span>
+                </div>
+               
+                <div class="course-option" data-course="enfermagem" data-duration="24">
+                    <div class="course-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Técnico em Enfermagem</h3>
+                    <p>Preparo para atuar na assistência aos pacientes em diferentes níveis de atenção à saúde.</p>
+                    <span class="course-duration">24 meses</span>
+                </div>
+               
+                <div class="course-option" data-course="informatica" data-duration="18">
+                    <div class="course-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Técnico em Informática</h3>
+                    <p>Desenvolvimento de soluções computacionais, redes de computadores e manutenção.</p>
+                    <span class="course-duration">18 meses</span>
+                </div>
+               
+                <div class="course-option" data-course="administracao" data-duration="18">
+                    <div class="course-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Técnico em Administração</h3>
+                    <p>Gestão de processos administrativos, recursos humanos e operações empresariais.</p>
+                    <span class="course-duration">18 meses</span>
+                </div>
+            </div>
+           
+            <button class="login-btn" id="confirmCourse">Continuar para Análise de Perfil</button>
+        </div>
+    </div>
+
+    <!-- Página de Análise de Perfil -->
+    <div class="profile-analysis-page" id="profileAnalysisPage">
+        <div class="analysis-container">
+            <div class="logo-technical" style="justify-content: center; margin-bottom: 30px;">
+                <div class="logo-icon">L14</div>
+                <div class="logo-text">
+                    <h1>COLEGIO <span>LEO XIV</span></h1>
+                    <p>Educação Técnica Católica</p>
+                </div>
+            </div>
+           
+            <div class="analysis-progress">
+                <div class="progress-bar">
+                    <div class="progress" id="analysisProgress"></div>
+                </div>
+                <p id="progressText">Passo 1 de 6</p>
+            </div>
+           
+            <!-- Passo 1: Objetivos Profissionais -->
+            <div class="analysis-step active" id="step1">
+                <h3>Qual é seu principal objetivo com este curso?</h3>
+                <p>Nos ajude a entender melhor suas aspirações para personalizar sua experiência</p>
+               
+                <div class="options-grid">
+                    <div class="option-card" data-value="crescimento">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Crescimento na Carreira</h4>
+                        <p>Busco promoções e maior responsabilidade na minha área atual</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="transicao">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h4>Transição de Carreira</h4>
+                        <p>Quero mudar completamente para uma nova área profissional</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="emprego">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Primeiro Emprego</h4>
+                        <p>Estou ingressando no mercado de trabalho pela primeira vez</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="conhecimento">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Aperfeiçoamento Técnico</h4>
+                        <p>Quero me especializar e aprofundar meus conhecimentos</p>
+                    </div>
+                </div>
+               
+                <button class="login-btn" id="nextStep1">Próxima Pergunta</button>
+            </div>
+           
+            <!-- Passo 2: Estilo de Aprendizado -->
+            <div class="analysis-step" id="step2">
+                <h3>Como você prefere aprender?</h3>
+                <p>Identifique seu estilo de aprendizagem preferido</p>
+               
+                <div class="options-grid">
+                    <div class="option-card" data-value="pratico">
+                        <i class="fas fa-tools"></i>
+                        <h4>Aprendizado Prático</h4>
+                        <p>Prefiro colocar a mão na massa e aprender fazendo</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="teorico">
+                        <i class="fas fa-book"></i>
+                        <h4>Base Teórica Sólida</h4>
+                        <p>Gosto de entender a teoria antes da prática</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="visual">
+                        <i class="fas fa-eye"></i>
+                        <h4>Visual e Demonstração</h4>
+                        <p>Aprendo melhor vendo exemplos e demonstrações</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="colaborativo">
+                        <i class="fas fa-users"></i>
+                        <h4>Colaborativo em Grupo</h4>
+                        <p>Prefiro aprender discutindo e trabalhando em equipe</p>
+                    </div>
+                </div>
+               
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button class="btn btn-vinho" id="prevStep2">Voltar</button>
+                    <button class="login-btn" id="nextStep2">Próxima Pergunta</button>
+                </div>
+            </div>
+           
+            <!-- Passo 3: Disponibilidade -->
+            <div class="analysis-step" id="step3">
+                <h3>Quantas horas por semana você pode dedicar?</h3>
+                <p>Isso nos ajuda a sugerir um ritmo de estudos adequado</p>
+               
+                <div class="options-grid">
+                    <div class="option-card" data-value="10">
+                        <i class="fas fa-clock"></i>
+                        <h4>Até 10 horas</h4>
+                        <p>Tenho outras responsabilidades importantes</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="20">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>10-20 horas</h4>
+                        <p>Posso dedicar um tempo considerável</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="30">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>20-30 horas</h4>
+                        <p>Posso me dedicar quase em tempo integral</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="40">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Mais de 30 horas</h4>
+                        <p>Posso me dedicar intensivamente</p>
+                    </div>
+                </div>
+               
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button class="btn btn-vinho" id="prevStep3">Voltar</button>
+                    <button class="login-btn" id="nextStep3">Próxima Pergunta</button>
+                </div>
+            </div>
+           
+            <!-- Passo 4: Data de Início -->
+            <div class="analysis-step" id="step4">
+                <h3>Quando você começou ou pretende começar?</h3>
+                <p>Vamos calcular sua data de conclusão estimada</p>
+               
+                <div class="date-input">
+                    <select id="startMonth">
+                        <option value="">Mês de início</option>
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                   
+                    <select id="startYear">
+                        <option value="">Ano de início</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select>
+                </div>
+               
+                <p style="margin-top: 20px; font-style: italic;">
+                    <i class="fas fa-info-circle"></i> Se já começou, selecione quando iniciou. Se ainda vai começar, selecione quando planeja iniciar.
+                </p>
+               
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button class="btn btn-vinho" id="prevStep4">Voltar</button>
+                    <button class="login-btn" id="nextStep4">Próxima Pergunta</button>
+                </div>
+            </div>
+           
+            <!-- Passo 5: Metas Pessoais -->
+            <div class="analysis-step" id="step5">
+                <h3>O que é mais importante para você no curso?</h3>
+                <p>Selecione sua prioridade principal</p>
+               
+                <div class="options-grid">
+                    <div class="option-card" data-value="notas">
+                        <i class="fas fa-star"></i>
+                        <h4>Notas Excelentes</h4>
+                        <p>Quero alcançar as melhores notas possíveis</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="rede">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Rede de Contatos</h4>
+                        <p>Construir relacionamentos profissionais é crucial</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="pratica">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Experiência Prática</h4>
+                        <p>Aplicar conhecimento em situações reais é essencial</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="velocidade">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h4>Conclusão Rápida</h4>
+                        <p>Quero terminar o curso no menor tempo possível</p>
+                    </div>
+                </div>
+               
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button class="btn btn-vinho" id="prevStep5">Voltar</button>
+                    <button class="login-btn" id="nextStep5">Próxima Pergunta</button>
+                </div>
+            </div>
+           
+            <!-- Passo 6: Ambiente de Estudo -->
+            <div class="analysis-step" id="step6">
+                <h3>Como é seu ambiente de estudo ideal?</h3>
+                <p>Descreva onde você se sente mais produtivo</p>
+               
+                <div class="options-grid">
+                    <div class="option-card" data-value="silencio">
+                        <i class="fas fa-volume-mute"></i>
+                        <h4>Silêncio Absoluto</h4>
+                        <p>Preciso de um ambiente totalmente silencioso</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="organizado">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Organizado e Planejado</h4>
+                        <p>Gosto de ter tudo organizado com antecedência</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="flexivel">
+                        <i class="fas fa-couch"></i>
+                        <h4>Flexível e Confortável</h4>
+                        <p>Prefiro estudar onde me sinto mais confortável</p>
+                    </div>
+                   
+                    <div class="option-card" data-value="dinamico">
+                        <i class="fas fa-music"></i>
+                        <h4>Dinâmico e Estimulante</h4>
+                        <p>Um ambiente com algum movimento me ajuda</p>
+                    </div>
+                </div>
+               
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button class="btn btn-vinho" id="prevStep6">Voltar</button>
+                    <button class="login-btn" id="analyzeProfile">Analisar Meu Perfil</button>
+                </div>
+            </div>
+           
+            <!-- Resultado da Análise -->
+            <div class="analysis-step" id="stepResult">
+                <div class="analysis-result">
+                    <div class="profile-animal" id="animalIcon"></div>
+                    <h2 class="profile-title" id="animalTitle"></h2>
+                    <p class="profile-description" id="animalDescription"></p>
+                   
+                    <div class="animal-stats" id="animalStats"></div>
+                   
+                    <div class="completion-date" id="completionDate">
+                        <h3><i class="fas fa-calendar-check"></i> Previsão de Conclusão</h3>
+                        <p id="completionText"></p>
+                    </div>
+                   
+                    <div style="margin-top: 30px;">
+                        <h3>Recomendações Personalizadas</h3>
+                        <p id="recommendations"></p>
+                    </div>
+                   
+                    <button class="login-btn" style="margin-top: 30px;" id="finishAnalysis">
+                        Acessar Portal Completo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página Principal (após login) -->
+    <div class="main-page" id="mainPage">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="container header-content">
+                <div class="logo">
+                    <div class="header-logo">
+                        <div class="header-icon">L14</div>
+                        <div class="header-text">
+                            <h1>COLEGIO <span>LEO XIV</span></h1>
+                            <p>Educação Técnica Católica</p>
+                            <div class="institutional-badge">Instituição de referência com integração ao mercado</div>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="dashboard"><i class="fas fa-home"></i> Início</a></li>
+                        <li><a href="#" class="nav-link" data-page="performance"><i class="fas fa-chart-line"></i> Desempenho</a></li>
+                        <li><a href="#" class="nav-link" data-page="detailed-courses"><i class="fas fa-book-open"></i> Unidades Curriculares</a></li>
+                        <li><a href="#" class="nav-link" data-page="companies"><i class="fas fa-building"></i> Empresas</a></li>
+                        <li><a href="#" class="nav-link" data-page="chat"><i class="fas fa-comments"></i> Chat</a></li>
+                        <li><a href="#" class="nav-link" data-page="edit-profile"><i class="fas fa-user-edit"></i> Meu Perfil</a></li>
+                    </ul>
+                </nav>
+                <div class="user-menu" id="userMenu">
+                    <img src="https://images.unsplash.com/photo-1541367777708-7905fe3296c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Perfil do Aluno" id="userAvatar">
+                    <span id="userName">Aluno</span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" class="nav-link" data-page="edit-profile"><i class="fas fa-user-circle"></i> Editar Perfil</a>
+                        <a href="#" class="nav-link" data-page="performance"><i class="fas fa-chart-bar"></i> Desempenho</a>
+                        <a href="#" id="changeCourseBtn"><i class="fas fa-exchange-alt"></i> Alterar Curso</a>
+                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>Formação Técnica com Valores Católicos</h2>
+                <p>No Colégio Leo XIV, unimos excelência técnica e formação integral baseada nos princípios do Evangelho e do Magistério da Igreja.</p>
+                <a href="#" class="btn btn-gold nav-link" data-page="detailed-courses">Ver Unidades Curriculares</a>
+            </div>
+        </section>
+
+        <!-- Conteúdo Principal - Dashboard -->
+        <main class="container" id="dashboard">
+            <h1 class="page-title">Portal do Aluno - <span id="currentCourseTitle">Técnico em Segurança do Trabalho</span></h1>
+           
+            <!-- Perfil Animal do Aluno -->
+            <div class="card" id="animalProfileCard" style="display: none;">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-paw"></i> Seu Perfil de Aprendizagem</h2>
+                    <span class="badge" id="animalBadge"></span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 30px;">
+                    <div style="font-size: 4rem; text-align: center; flex: 0 0 100px;" id="dashboardAnimalIcon"></div>
+                    <div>
+                        <h3 id="dashboardAnimalTitle" style="color: var(--vinho); margin-bottom: 10px;"></h3>
+                        <p id="dashboardAnimalDescription"></p>
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" id="courseProgressBar" style="width: 0%; background-color: var(--azul-tecnico);"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso do curso:</strong> <span id="courseProgressText">0%</span></p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Botões de Acesso Rápido -->
+            <div class="grid" style="margin-bottom: 30px;">
+                <a href="#" class="btn btn-gold btn-large nav-link" data-page="detailed-courses">
+                    <i class="fas fa-book-open"></i> Unidades Curriculares
+                </a>
+                <a href="#" class="btn btn-vinho btn-large nav-link" data-page="chat">
+                    <i class="fas fa-comments"></i> Chat com Professores
+                </a>
+                <a href="#" class="btn btn-large nav-link" data-page="companies" style="background-color: var(--azul-tecnico);">
+                    <i class="fas fa-handshake"></i> Empresas Parceiras
+                </a>
+            </div>
+           
+            <!-- Estatísticas do Dashboard -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <i class="fas fa-tasks"></i>
+                    <div class="stat-value" id="statProgress">0%</div>
+                    <div class="stat-label">Progresso Geral</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-value" id="statCompleted">0/0</div>
+                    <div class="stat-label">Disciplinas Concluídas</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-value" id="statAverage">0.0</div>
+                    <div class="stat-label">Média Geral</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-value" id="statPending">0</div>
+                    <div class="stat-label">Atividades Pendentes</div>
+                </div>
+            </div>
+           
+            <!-- Unidades Curriculares em Destaque -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-book"></i> Unidades Curriculares em Destaque</h2>
+                    <a href="#" class="btn btn-vinho nav-link" data-page="detailed-courses">Ver Todas</a>
+                </div>
+                <div class="grid" id="coursesGrid"></div>
+            </div>
+           
+            <!-- Seção de Empresas Parceiras (Preview) -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-handshake"></i> Oportunidades de Mercado</h2>
+                    <a href="#" class="btn btn-vinho nav-link" data-page="companies">Ver Todas</a>
+                </div>
+                <p style="margin-bottom: 20px;">Conectamos nossos alunos às melhores empresas do mercado. Confira algumas das nossas parcerias:</p>
+               
+                <div class="companies-grid">
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: var(--vinho);">RHI Magnesita</h3>
+                        </div>
+                        <p>Líder mundial em soluções refratárias</p>
+                        <span class="badge badge-completed">3 vagas abertas</span>
+                    </div>
+                   
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: var(--vinho);">VILMA</h3>
+                        </div>
+                        <p>Especializada em produtos alimentícios</p>
+                        <span class="badge badge-completed">5 vagas abertas</span>
+                    </div>
+                   
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: var(--vinho);">Belgo ARAMES</h3>
+                        </div>
+                        <p>Maior produtora de arames da América Latina</p>
+                        <span class="badge badge-completed">2 vagas abertas</span>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Seção de Chat Preview -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-comments"></i> Chat com Professores</h2>
+                    <a href="#" class="btn btn-vinho nav-link" data-page="chat">Acessar Chat Completo</a>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3><i class="fas fa-user-md"></i> Prof. Dr. Carlos Silva</h3>
+                        <p>Especialista em Segurança do Trabalho</p>
+                        <p style="margin: 15px 0; font-style: italic;">"Estou disponível para tirar dúvidas sobre NRs"</p>
+                        <a href="#" class="btn nav-link" data-page="chat">
+                            <i class="fas fa-comment"></i> Enviar Mensagem
+                        </a>
+                    </div>
+                   
+                    <div class="card">
+                        <h3><i class="fas fa-user-graduate"></i> Prof. Dra. Ana Rodrigues</h3>
+                        <p>Especialista em Prevenção de Acidentes</p>
+                        <p style="margin: 15px 0; font-style: italic;">"Vamos marcar uma sessão de dúvidas?"</p>
+                        <a href="#" class="btn nav-link" data-page="chat">
+                            <i class="fas fa-comment"></i> Enviar Mensagem
+                        </a>
+                    </div>
+                   
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale"></i> Prof. Me. Roberto Almeida</h3>
+                        <p>Especialista em Legislação</p>
+                        <p style="margin: 15px 0; font-style: italic;">"Disponível para consultas sobre normas"</p>
+                        <a href="#" class="btn nav-link" data-page="chat">
+                            <i class="fas fa-comment"></i> Enviar Mensagem
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Página de Desempenho Individual -->
+        <main class="container" id="performance" style="display: none;">
+            <h1 class="page-title">Desempenho Individual</h1>
+           
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-user-graduate"></i> Análise do Seu Desempenho</h2>
+                    <a href="#" class="btn btn-vinho">Exportar Relatório</a>
+                </div>
+               
+                <div class="performance-grid">
+                    <div class="skills-assessment">
+                        <h3>Avaliação de Competências Técnicas</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Normas Regulamentadoras</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%; background-color: #4CAF50;"></div>
+                                </div>
+                                <div class="skill-feedback">
+                                    <p><strong>Domínio:</strong> NR-5 (CIPA), NR-6 (EPIs), NR-10 (Eletricidade)</p>
+                                    <p><strong>Recomendação:</strong> Revisar NR-12 (Segurança em Máquinas)</p>
+                                    <div class="strength-area">
+                                        <strong>Pontos Fortes:</strong> Excelente compreensão das responsabilidades legais e aplicação prática das normas.
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Análise de Riscos</span>
+                                    <span class="skill-level">70%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%; background-color: #FF9800;"></div>
+                                </div>
+                                <div class="skill-feedback">
+                                    <p><strong>Domínio:</strong> Identificação de perigos básicos</p>
+                                    <p><strong>Recomendação:</strong> Praticar mais casos de APR (Análise Preliminar de Riscos)</p>
+                                    <div class="improvement-area">
+                                        <strong>Precisa Melhorar:</strong> Aprofundar conhecimentos em PGR (Programa de Gerenciamento de Riscos) e técnicas quantitativas de avaliação.
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">EPIs e EPCs</span>
+                                    <span class="skill-level">92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 92%; background-color: #4CAF50;"></div>
+                                </div>
+                                <div class="skill-feedback">
+                                    <p><strong>Domínio:</strong> Seleção, uso e conservação de equipamentos</p>
+                                    <p><strong>Recomendação:</strong> Manter o excelente desempenho</p>
+                                    <div class="strength-area">
+                                        <strong>Pontos Fortes:</strong> Conhecimento abrangente sobre especificações técnicas, certificações e aplicações práticas de EPIs e EPCs.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="performance-summary">
+                        <h3>Métricas de Desempenho</h3>
+                        <div class="summary-item">
+                            <div class="summary-value">8.7</div>
+                            <div class="summary-label">Média Geral</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">78%</div>
+                            <div class="summary-label">Taxa de Aproveitamento</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">15º</div>
+                            <div class="summary-label">Posição na Turma</div>
+                        </div>
+                       
+                        <div class="performance-chart">
+                            <div class="chart-placeholder">
+                                Gráfico de Evolução Mensal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card" style="margin-top: 30px;">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-bullseye"></i> Plano de Desenvolvimento Individual</h2>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h4>Objetivos para os Próximos 3 Meses</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Elevar a proficiência em Análise de Riscos para 85%</li>
+                                <li>Dominar os requisitos da NR-12 (Segurança em Máquinas)</li>
+                                <li>Completar o curso complementar de Gestão de SST</li>
+                                <li>Participar de pelo menos 2 simulados de emergência</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Página de Unidades Curriculares Detalhadas -->
+        <main class="container" id="detailed-courses" style="display: none;">
+            <h1 class="page-title">Unidades Curriculares - Segurança do Trabalho</h1>
+           
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Grade Curricular Completa</h2>
+                    <span class="badge badge-completed">18 unidades</span>
+                </div>
+               
+                <p style="margin-bottom: 20px;">Confira todas as unidades curriculares do curso técnico em Segurança do Trabalho com videoaulas complementares.</p>
+               
+                <div class="units-grid">
+                    <!-- Unidade 1 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">1. Introdução à Segurança do Trabalho</h3>
+                            <span class="unit-badge">40h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Dr. Carlos Silva</p>
+                        <p>Conceitos fundamentais, histórico e importância da segurança no trabalho.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="ZAViKBXo_os" data-title="Introdução à Segurança do Trabalho">
+                                <i class="fas fa-play-circle"></i> Aula 1: Conceitos Fundamentais
+                            </div>
+                            <div class="video-item play-video" data-video="dQw4w9WgXcQ" data-title="História da Segurança do Trabalho">
+                                <i class="fas fa-play-circle"></i> Aula 2: Evolução Histórica
+                            </div>
+                            <div class="video-item play-video" data-video="9bZkp7q19f0" data-title="Importância da Segurança">
+                                <i class="fas fa-play-circle"></i> Aula 3: Importância e Benefícios
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 90%; background-color: #4CAF50;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 90%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 2 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">2. Legislação e Normas Regulamentadoras</h3>
+                            <span class="unit-badge">60h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Me. Roberto Almeida</p>
+                        <p>Estudo das NRs, CLT e legislação pertinente à segurança no trabalho.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="ajttcEALeAM" data-title="NRs - Normas Regulamentadoras">
+                                <i class="fas fa-play-circle"></i> Aula 1: Introdução às NRs
+                            </div>
+                            <div class="video-item play-video" data-video="3JWTaaS7LdU" data-title="NR-5 - CIPA">
+                                <i class="fas fa-play-circle"></i> Aula 2: NR-5 - Comissão Interna
+                            </div>
+                            <div class="video-item play-video" data-video="wPM0gcRcR4c" data-title="NR-6 - EPIs">
+                                <i class="fas fa-play-circle"></i> Aula 3: NR-6 - Equipamentos de Proteção
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 85%; background-color: #4CAF50;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 85%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 3 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">3. Prevenção e Controle de Riscos</h3>
+                            <span class="unit-badge">80h</span>
+                        </div>
+                        <p><strong>Professora:</strong> Dra. Ana Rodrigues</p>
+                        <p>Identificação, avaliação e controle de riscos ocupacionais.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="1YIuKZ10hnM" data-title="Prevenção de Acidentes">
+                                <i class="fas fa-play-circle"></i> Aula 1: Identificação de Riscos
+                            </div>
+                            <div class="video-item play-video" data-video="nSDgHBxUbVQ" data-title="Controle de Riscos">
+                                <i class="fas fa-play-circle"></i> Aula 2: Medidas de Controle
+                            </div>
+                            <div class="video-item play-video" data-video="L_jWHffIx5E" data-title="Análise de Riscos">
+                                <i class="fas fa-play-circle"></i> Aula 3: Métodos de Análise
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 75%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 75%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 4 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">4. Higiene Ocupacional</h3>
+                            <span class="unit-badge">50h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Dr. Marcelo Costa</p>
+                        <p>Avaliação e controle de agentes físicos, químicos e biológicos.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="UYYucWHzCko" data-title="Agentes Químicos">
+                                <i class="fas fa-play-circle"></i> Aula 1: Contaminantes Químicos
+                            </div>
+                            <div class="video-item play-video" data-video="JGwWNGJdvx8" data-title="Agentes Físicos">
+                                <i class="fas fa-play-circle"></i> Aula 2: Ruído e Vibrações
+                            </div>
+                            <div class="video-item play-video" data-video="CduB0I2s4Y8" data-title="Agentes Biológicos">
+                                <i class="fas fa-play-circle"></i> Aula 3: Riscos Biológicos
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 70%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 70%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 5 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">5. Ergonomia</h3>
+                            <span class="unit-badge">45h</span>
+                        </div>
+                        <p><strong>Professora:</strong> Dra. Fernanda Lima</p>
+                        <p>Adaptação do trabalho ao homem e prevenção de LER/DORT.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="kXYiU_JCYtU" data-title="Conceitos de Ergonomia">
+                                <i class="fas fa-play-circle"></i> Aula 1: Fundamentos da Ergonomia
+                            </div>
+                            <div class="video-item play-video" data-video="Qh2SWSIJTb4" data-title="Análise Ergonômica">
+                                <i class="fas fa-play-circle"></i> Aula 2: Métodos de Avaliação
+                            </div>
+                            <div class="video-item play-video" data-video="LLSp8lYwTRE" data-title="Prevenção LER/DORT">
+                                <i class="fas fa-play-circle"></i> Aula 3: Lesões por Esforço
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 65%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 65%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 6 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">6. Proteção Contra Incêndios</h3>
+                            <span class="unit-badge">40h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Me. Paulo Santos</p>
+                        <p>Prevenção e combate a incêndios, sistemas de proteção.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="RgKAFK5djSk" data-title="Teoria do Fogo">
+                                <i class="fas fa-play-circle"></i> Aula 1: Fundamentos do Fogo
+                            </div>
+                            <div class="video-item play-video" data-video="OPf0YbXqDm0" data-title="Extintores">
+                                <i class="fas fa-play-circle"></i> Aula 2: Classes de Extintores
+                            </div>
+                            <div class="video-item play-video" data-video="CQY3KUKl8Qo" data-title="Sistemas de Alarme">
+                                <i class="fas fa-play-circle"></i> Aula 3: Detecção e Alarme
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 60%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 60%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 7 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">7. Primeiros Socorros</h3>
+                            <span class="unit-badge">35h</span>
+                        </div>
+                        <p><strong>Professora:</strong> Dra. Carla Oliveira</p>
+                        <p>Atendimento emergencial em casos de acidentes no trabalho.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="cDDWvj_q-o8" data-title="ABC dos Primeiros Socorros">
+                                <i class="fas fa-play-circle"></i> Aula 1: Avaliação Inicial
+                            </div>
+                            <div class="video-item play-video" data-video="OOsqVTS4uUw" data-title="RCP - Reanimação">
+                                <i class="fas fa-play-circle"></i> Aula 2: Reanimação Cardiopulmonar
+                            </div>
+                            <div class="video-item play-video" data-video="vmEoJzOQe_s" data-title="Hemorragias">
+                                <i class="fas fa-play-circle"></i> Aula 3: Controle de Sangramentos
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 55%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 55%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 8 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">8. Gestão de SST</h3>
+                            <span class="unit-badge">70h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Dr. Ricardo Souza</p>
+                        <p>Implementação e gestão de sistemas de segurança no trabalho.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="09R8_2nJtjg" data-title="Sistemas de Gestão">
+                                <i class="fas fa-play-circle"></i> Aula 1: Modelos de Gestão
+                            </div>
+                            <div class="video-item play-video" data-video="7PCkvCPvDXk" data-title="Documentação">
+                                <i class="fas fa-play-circle"></i> Aula 2: Documentação de SST
+                            </div>
+                            <div class="video-item play-video" data-video="yzTuB67Qq9Y" data-title="Indicadores">
+                                <i class="fas fa-play-circle"></i> Aula 3: Métricas e Indicadores
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 50%; background-color: #FF9800;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 50%</strong></p>
+                    </div>
+                   
+                    <!-- Unidade 9 -->
+                    <div class="unit-card">
+                        <div class="unit-header">
+                            <h3 style="color: var(--vinho);">9. Meio Ambiente e SST</h3>
+                            <span class="unit-badge">40h</span>
+                        </div>
+                        <p><strong>Professor:</strong> Me. João Pereira</p>
+                        <p>Interface entre segurança do trabalho e gestão ambiental.</p>
+                       
+                        <div class="videos-list">
+                            <div class="video-item play-video" data-video="G7RgN9ijwE4" data-title="Sistema Integrado">
+                                <i class="fas fa-play-circle"></i> Aula 1: Integração SGI
+                            </div>
+                            <div class="video-item play-video" data-video="tYBOhjGQ2w4" data-title="Resíduos Perigosos">
+                                <i class="fas fa-play-circle"></i> Aula 2: Gestão de Resíduos
+                            </div>
+                            <div class="video-item play-video" data-video="YQHsXMglC9A" data-title="Licenciamento">
+                                <i class="fas fa-play-circle"></i> Aula 3: Aspectos Legais
+                            </div>
+                        </div>
+                       
+                        <div class="progress-bar" style="margin-top: 15px;">
+                            <div class="progress" style="width: 45%; background-color: #9E9E9E;"></div>
+                        </div>
+                        <p style="margin-top: 5px;"><strong>Progresso: 45%</strong></p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Materiais de Apoio -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-hands-helping"></i> Materiais de Apoio Complementares</h2>
+                    <a href="#" class="btn btn-vinho">Biblioteca Completa</a>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3><i class="fas fa-file-pdf"></i> Apostilas e Manuais</h3>
+                        <p>Materiais didáticos organizados por disciplina com enfoque técnico.</p>
+                        <a href="https://drive.google.com/file/d/1hCU0JLdIHIVw2TNc8PAv2WrpeR68PwT6/view" target="_blank" class="btn">Acessar</a>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-video"></i> Videoaulas Avançadas</h3>
+                        <p>Conteúdo complementar com perspectiva técnica aplicada.</p>
+                        <button class="btn play-video" data-video="UYYucWHzCko" data-title="Videoaulas Complementares">
+                            Assistir
+                        </button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-newspaper"></i> Documentos da Igreja</h3>
+                        <p>Textos do Magistério sobre o trabalho e dignidade humana.</p>
+                        <a href="https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html" target="_blank" class="btn">Ler</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Página de Integração Empresarial -->
+        <main class="container" id="companies" style="display: none;">
+            <h1 class="page-title">Integração com o Mercado</h1>
+           
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-handshake"></i> Empresas Parceiras</h2>
+                    <a href="#" class="btn btn-vinho">Cadastrar Currículo</a>
+                </div>
+               
+                <p style="margin-bottom: 20px;">Conectamos nossos alunos às melhores oportunidades de estágio e emprego. Estas empresas confiam na formação técnica e ética dos nossos alunos:</p>
+               
+                <div class="companies-grid">
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: #E30613;">RHI Magnesita</h3>
+                        </div>
+                        <p><strong>Setor:</strong> Refratários</p>
+                        <p><strong>Porte:</strong> Multinacional</p>
+                        <p>Líder mundial em soluções refratárias de alta qualidade para indústrias de processo.</p>
+                        <span class="badge badge-completed" style="margin-top: 10px;">3 vagas abertas</span>
+                    </div>
+                   
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: #0056A3;">VILMA</h3>
+                        </div>
+                        <p><strong>Setor:</strong> Alimentício</p>
+                        <p><strong>Porte:</strong> Grande</p>
+                        <p>Especializada em produtos alimentícios com tradição e qualidade reconhecida.</p>
+                        <span class="badge badge-completed" style="margin-top: 10px;">5 vagas abertas</span>
+                    </div>
+                   
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: #003366;">Belgo ARAMES</h3>
+                        </div>
+                        <p><strong>Setor:</strong> Siderurgia</p>
+                        <p><strong>Porte:</strong> Multinacional</p>
+                        <p>Maior produtora de arames da América Latina, parte do Grupo ArcelorMittal.</p>
+                        <span class="badge badge-completed" style="margin-top: 10px;">2 vagas abertas</span>
+                    </div>
+                   
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <h3 style="color: #F8E71C; background-color: #001E6C; padding: 5px 10px; border-radius: 4px;">Banco do Brasil</h3>
+                        </div>
+                        <p><strong>Setor:</strong> Financeiro</p>
+                        <p><strong>Porte:</strong> Estatal</p>
+                        <p>Maior banco estatal brasileiro, com ampla rede de atendimento em todo o país.</p>
+                        <span class="badge badge-completed" style="margin-top: 10px;">8 vagas abertas</span>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-bullhorn"></i> Vagas em Destaque</h2>
+                    <a href="#" class="btn btn-vinho">Ver Todas as Vagas</a>
+                </div>
+               
+                <div class="vacancies-list">
+                    <div class="vacancy-item">
+                        <div class="vacancy-info">
+                            <h4>Estágio em Segurança do Trabalho</h4>
+                            <p><strong>Empresa:</strong> RHI Magnesita</p>
+                            <p><strong>Local:</strong> Contagem - MG</p>
+                            <div class="vacancy-tags">
+                                <span class="vacancy-tag">Estágio</span>
+                                <span class="vacancy-tag">Segurança do Trabalho</span>
+                                <span class="vacancy-tag">6h diárias</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Candidatar-se</a>
+                    </div>
+                   
+                    <div class="vacancy-item">
+                        <div class="vacancy-info">
+                            <h4>Auxiliar de Enfermagem</h4>
+                            <p><strong>Empresa:</strong> Hospital São Camilo</p>
+                            <p><strong>Local:</strong> São Paulo - SP</p>
+                            <div class="vacancy-tags">
+                                <span class="vacancy-tag">CLT</span>
+                                <span class="vacancy-tag">Enfermagem</span>
+                                <span class="vacancy-tag">Plantões 12x36</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Candidatar-se</a>
+                    </div>
+                   
+                    <div class="vacancy-item">
+                        <div class="vacancy-info">
+                            <h4>Técnico em Informática - Júnior</h4>
+                            <p><strong>Empresa:</strong> Banco do Brasil</p>
+                            <p><strong>Local:</strong> Brasília - DF</p>
+                            <div class="vacancy-tags">
+                                <span class="vacancy-tag">CLT</span>
+                                <span class="vacancy-tag">Informática</span>
+                                <span class="vacancy-tag">Home Office</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Candidatar-se</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Página de Chat com Professores -->
+        <main class="container" id="chat" style="display: none;">
+            <h1 class="page-title">Chat com Professores</h1>
+           
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <h3>Professores Online</h3>
+                    <ul class="teacher-list">
+                        <li class="teacher-item active" data-teacher="carlos">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="teacher-avatar" alt="Prof. Carlos">
+                            <div class="teacher-info">
+                                <h4>Prof. Dr. Carlos Silva <span class="teacher-status status-online"></span></h4>
+                                <p>Segurança do Trabalho</p>
+                                <p><small>Disponível agora</small></p>
+                            </div>
+                        </li>
+                       
+                        <li class="teacher-item" data-teacher="ana">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="teacher-avatar" alt="Prof. Ana">
+                            <div class="teacher-info">
+                                <h4>Prof. Dra. Ana Rodrigues <span class="teacher-status status-online"></span></h4>
+                                <p>Prevenção de Acidentes</p>
+                                <p><small>Online</small></p>
+                            </div>
+                        </li>
+                       
+                        <li class="teacher-item" data-teacher="roberto">
+                            <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="teacher-avatar" alt="Prof. Roberto">
+                            <div class="teacher-info">
+                                <h4>Prof. Me. Roberto Almeida <span class="teacher-status status-away"></span></h4>
+                                <p>Legislação e Normas</p>
+                                <p><small>Ausente</small></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+               
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div>
+                            <h3 id="chatTeacherName">Prof. Dr. Carlos Silva</h3>
+                            <p id="chatTeacherSubject">Segurança do Trabalho</p>
+                        </div>
+                        <div>
+                            <span class="teacher-status status-online" id="chatStatus"></span>
+                            <span id="chatStatusText">Online</span>
+                        </div>
+                    </div>
+                   
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Mensagens serão carregadas aqui -->
+                        <div class="message message-received">
+                            <p>Olá! Sou o Professor Carlos. Como posso ajudá-lo hoje?</p>
+                            <div class="message-time">10:00 AM</div>
+                        </div>
+                       
+                        <div class="message message-sent">
+                            <p>Bom dia, professor! Tenho uma dúvida sobre a NR-10.</p>
+                            <div class="message-time">10:02 AM</div>
+                        </div>
+                       
+                        <div class="message message-received">
+                            <p>Claro! A NR-10 trata de segurança em instalações elétricas. Qual aspecto específico você gostaria de esclarecer?</p>
+                            <div class="message-time">10:03 AM</div>
+                        </div>
+                    </div>
+                   
+                    <div class="chat-input">
+                        <textarea id="messageInput" placeholder="Digite sua mensagem aqui..."></textarea>
+                        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Página de Edição de Perfil -->
+        <main class="container" id="edit-profile" style="display: none;">
+            <h1 class="page-title">Editar Meu Perfil</h1>
+           
+            <div class="profile-edit-container">
+                <div class="profile-edit-sidebar">
+                    <div class="avatar-upload">
+                        <img src="https://images.unsplash.com/photo-1541367777708-7905fe3296c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                             alt="Foto de Perfil" class="profile-edit-avatar" id="profileEditAvatar">
+                        <input type="file" id="avatarUpload" accept="image/*">
+                        <button class="btn btn-gold" style="margin-top: 10px; width: 100%;" onclick="document.getElementById('avatarUpload').click()">
+                            <i class="fas fa-camera"></i> Alterar Foto
+                        </button>
+                    </div>
+                   
+                    <ul class="profile-edit-nav">
+                        <li><a href="#" class="active" data-section="personal"><i class="fas fa-user"></i> Dados Pessoais</a></li>
+                        <li><a href="#" data-section="academic"><i class="fas fa-graduation-cap"></i> Dados Acadêmicos</a></li>
+                        <li><a href="#" data-section="professional"><i class="fas fa-briefcase"></i> Dados Profissionais</a></li>
+                        <li><a href="#" data-section="privacy"><i class="fas fa-shield-alt"></i> Privacidade</a></li>
+                        <li><a href="#" data-section="preferences"><i class="fas fa-cog"></i> Preferências</a></li>
+                    </ul>
+                </div>
+               
+                <div class="profile-edit-main">
+                    <!-- Seção: Dados Pessoais -->
+                    <div class="edit-section active" id="personal-section">
+                        <h3><i class="fas fa-user"></i> Dados Pessoais</h3>
+                       
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editNome">Nome Completo</label>
+                                <input type="text" id="editNome" value="Pedro Jaques">
+                            </div>
+                            <div class="form-group">
+                                <label for="editEmail">E-mail</label>
+                                <input type="email" id="editEmail" value="pedro.jaques@email.com">
+                            </div>
+                        </div>
+                       
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editTelefone">Telefone</label>
+                                <input type="tel" id="editTelefone" value="(11) 98765-4321">
+                            </div>
+                            <div class="form-group">
+                                <label for="editNascimento">Data de Nascimento</label>
+                                <input type="date" id="editNascimento" value="1995-05-15">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editEndereco">Endereço</label>
+                            <input type="text" id="editEndereco" value="Rua das Flores, 123 - Jardim Primavera, São Paulo - SP">
+                        </div>
+                       
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editCidade">Cidade</label>
+                                <input type="text" id="editCidade" value="São Paulo">
+                            </div>
+                            <div class="form-group">
+                                <label for="editEstado">Estado</label>
+                                <select id="editEstado">
+                                    <option value="SP" selected>São Paulo</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="ES">Espírito Santo</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <button class="btn btn-vinho" style="margin-top: 20px;">
+                            <i class="fas fa-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                   
+                    <!-- Seção: Dados Acadêmicos -->
+                    <div class="edit-section" id="academic-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Dados Acadêmicos</h3>
+                       
+                        <div class="form-group">
+                            <label for="editMatricula">Matrícula</label>
+                            <input type="text" id="editMatricula" value="242013" readonly>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editCurso">Curso Atual</label>
+                            <select id="editCurso">
+                                <option value="seguranca" selected>Técnico em Segurança do Trabalho</option>
+                                <option value="enfermagem">Técnico em Enfermagem</option>
+                                <option value="informatica">Técnico em Informática</option>
+                                <option value="administracao">Técnico em Administração</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editInicio">Data de Início</label>
+                                <input type="month" id="editInicio" value="2024-03">
+                            </div>
+                            <div class="form-group">
+                                <label for="editPrevisao">Previsão de Término</label>
+                                <input type="month" id="editPrevisao" value="2025-09" readonly>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editPerfilAnimal">Perfil de Aprendizagem</label>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+                                <div style="font-size: 2rem;" id="profileAnimalIcon">🦅</div>
+                                <div>
+                                    <h4 id="profileAnimalTitle" style="margin: 0; color: var(--vinho);">Águia Estratégica</h4>
+                                    <p id="profileAnimalDesc" style="margin: 5px 0 0 0; font-size: 0.9rem;">
+                                        Você tem visão ampla e estratégica. Aprende melhor com teoria sólida e planejamento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <button class="btn btn-vinho" style="margin-top: 20px;">
+                            <i class="fas fa-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                   
+                    <!-- Seção: Dados Profissionais -->
+                    <div class="edit-section" id="professional-section">
+                        <h3><i class="fas fa-briefcase"></i> Dados Profissionais</h3>
+                       
+                        <div class="form-group">
+                            <label for="editSituacao">Situação Profissional</label>
+                            <select id="editSituacao">
+                                <option value="estudante" selected>Estudante (sem experiência)</option>
+                                <option value="estagiario">Estagiário</option>
+                                <option value="empregado">Empregado</option>
+                                <option value="desempregado">Desempregado</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editEmpresa">Empresa Atual (se aplicável)</label>
+                            <input type="text" id="editEmpresa" placeholder="Nome da empresa">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editCargo">Cargo (se aplicável)</label>
+                            <input type="text" id="editCargo" placeholder="Seu cargo atual">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editAreaInteresse">Área de Interesse</label>
+                            <select id="editAreaInteresse">
+                                <option value="seguranca" selected>Segurança do Trabalho</option>
+                                <option value="saude">Saúde Ocupacional</option>
+                                <option value="meioambiente">Meio Ambiente</option>
+                                <option value="qualidade">Qualidade</option>
+                                <option value="outra">Outra</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editObjetivo">Objetivo Profissional</label>
+                            <textarea id="editObjetivo" rows="4" placeholder="Descreva seus objetivos profissionais...">Busco uma posição como Técnico em Segurança do Trabalho onde possa aplicar meus conhecimentos e contribuir para um ambiente de trabalho mais seguro e saudável.</textarea>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editHabilidades">Habilidades e Competências</label>
+                            <textarea id="editHabilidades" rows="4" placeholder="Liste suas principais habilidades...">- Conhecimento em Normas Regulamentadoras (NRs)
+- Análise de Riscos
+- Uso de EPIs e EPCs
+- Primeiros Socorros
+- Elaboração de documentos de segurança</textarea>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="editLinkedin">Perfil do LinkedIn (opcional)</label>
+                            <input type="url" id="editLinkedin" placeholder="https://linkedin.com/in/seu-perfil">
+                        </div>
+                       
+                        <button class="btn btn-vinho" style="margin-top: 20px;">
+                            <i class="fas fa-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                   
+                    <!-- Seção: Privacidade -->
+                    <div class="edit-section" id="privacy-section">
+                        <h3><i class="fas fa-shield-alt"></i> Configurações de Privacidade</h3>
+                       
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                    <span>Perfil Público para Empresas</span>
+                                    <div class="switch">
+                                        <input type="checkbox" id="privacyPublicProfile" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                                <p style="font-size: 0.9rem; margin-top: 10px;">
+                                    Quando ativado, empresas parceiras poderão visualizar seu perfil profissional e desempenho acadêmico.
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                    <span>Receber Ofertas de Emprego</span>
+                                    <div class="switch">
+                                        <input type="checkbox" id="privacyJobOffers" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                                <p style="font-size: 0.9rem; margin-top: 10px;">
+                                    Permitir que empresas parceiras enviem ofertas de emprego e estágio diretamente para você.
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                    <span>Mostrar Notas no Perfil</span>
+                                    <div class="switch">
+                                        <input type="checkbox" id="privacyShowGrades" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                                <p style="font-size: 0.9rem; margin-top: 10px;">
+                                    Exibir suas notas e desempenho acadêmico no perfil público.
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <div class="card">
+                            <div class="form-group">
+                                <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                    <span>Receber Notificações por E-mail</span>
+                                    <div class="switch">
+                                        <input type="checkbox" id="privacyEmailNotifications" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                                <p style="font-size: 0.9rem; margin-top: 10px;">
+                                    Receber atualizações sobre novas vagas, mensagens de professores e atividades.
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <button class="btn btn-vinho" style="margin-top: 20px;">
+                            <i class="fas fa-save"></i> Salvar Configurações
+                        </button>
+                    </div>
+                   
+                    <!-- Seção: Preferências -->
+                    <div class="edit-section" id="preferences-section">
+                        <h3><i class="fas fa-cog"></i> Preferências do Sistema</h3>
+                       
+                        <div class="form-group">
+                            <label for="prefTheme">Tema do Sistema</label>
+                            <select id="prefTheme">
+                                <option value="light" selected>Claro</option>
+                                <option value="dark">Escuro</option>
+                                <option value="auto">Automático (segue sistema)</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="prefLanguage">Idioma</label>
+                            <select id="prefLanguage">
+                                <option value="pt" selected>Português (Brasil)</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="prefNotifications">Notificações</label>
+                            <select id="prefNotifications">
+                                <option value="all" selected>Todas as notificações</option>
+                                <option value="important">Apenas importantes</option>
+                                <option value="none">Nenhuma notificação</option>
+                            </select>
+                        </div>
+                       
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                    <span>Login Automático</span>
+                                    <div class="switch">
+                                        <input type="checkbox" id="prefAutoLogin">
+                                        <span class="slider"></span>
+                                    </div>
+                                </label>
+                                <p style="font-size: 0.9rem; margin-top: 10px;">
+                                    Manter-me conectado neste dispositivo.
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <div class="card">
+                            <h4 style="color: var(--vinho); margin-bottom: 15px;">Exportar Dados</h4>
+                            <p style="margin-bottom: 15px;">Você pode exportar todos os seus dados do sistema, incluindo histórico acadêmico, mensagens e informações de perfil.</p>
+                            <button class="btn btn-gold" style="width: 100%;">
+                                <i class="fas fa-download"></i> Exportar Meus Dados
+                            </button>
+                        </div>
+                       
+                        <div class="card" style="margin-top: 20px; border-color: #f44336;">
+                            <h4 style="color: #f44336; margin-bottom: 15px;">Zona de Perigo</h4>
+                            <p style="margin-bottom: 15px;">Ações irreversíveis. Tenha cuidado.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn" style="background-color: #f44336; color: white; flex: 1;">
+                                    <i class="fas fa-trash"></i> Excluir Conta
+                                </button>
+                                <button class="btn" style="background-color: #ff9800; color: white; flex: 1;">
+                                    <i class="fas fa-redo"></i> Refazer Análise
+                                </button>
+                            </div>
+                        </div>
+                       
+                        <button class="btn btn-vinho" style="margin-top: 20px;">
+                            <i class="fas fa-save"></i> Salvar Preferências
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <div class="container footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-phone"></i> (11) 98765-4321</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> 0001143323@senaimgaluno.com.br</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 - Jardim Primavera, São Paulo - SP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentos</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-id-card"></i> CNPJ: 12.345.678/0001-90</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> CNAE: 8520-1/01</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="chat"><i class="fas fa-comments"></i> Chat com Professor</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Fórum de Dúvidas</a></li>
+                        <li><a href="#"><i class="fas fa-hands-helping"></i> Orientação Educacional</a></li>
+                        <li><a href="#"><i class="fas fa-life-ring"></i> Suporte Técnico</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright container">
+                <p>&copy; 2023 Colégio Leo XIV - Todos os direitos reservados | "Instituição de referência com integração ao mercado"</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal do Player de Vídeo -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="video-header">
+                <h3 id="videoTitle">Título do Vídeo</h3>
+                <button class="close-btn" id="closeVideo">&times;</button>
+            </div>
+            <div class="video-wrapper">
+                <iframe id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Código JavaScript permanece o mesmo da versão anterior
+        // (Todo o código JavaScript é mantido igual)
+       
+        // Variáveis globais
+        let userProfile = {
+            course: '',
+            courseName: '',
+            courseDuration: 0,
+            objective: '',
+            learningStyle: '',
+            weeklyHours: 0,
+            startMonth: '',
+            startYear: '',
+            personalGoal: '',
+            studyEnvironment: '',
+            animalProfile: '',
+            completionDate: ''
+        };
+
+        // Sistema de Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+           
+            const matricula = document.getElementById('matricula').value;
+            const senha = document.getElementById('senha').value;
+           
+            // Credenciais válidas
+            if (matricula === '242013' && senha === 'Pedrojaques') {
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('courseSelectionPage').style.display = 'flex';
+            } else {
+                alert('Matrícula ou senha incorretos. Tente novamente.');
+            }
+        });
+       
+        // Sistema de Seleção de Curso
+        document.querySelectorAll('.course-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.course-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+               
+                this.classList.add('selected');
+               
+                userProfile.course = this.getAttribute('data-course');
+                userProfile.courseName = this.querySelector('h3').textContent;
+                userProfile.courseDuration = parseInt(this.getAttribute('data-duration'));
+            });
+        });
+       
+        // Confirmar seleção de curso e ir para análise de perfil
+        document.getElementById('confirmCourse').addEventListener('click', function() {
+            if (!userProfile.course) {
+                alert('Por favor, selecione um curso antes de continuar.');
+                return;
+            }
+           
+            document.getElementById('courseSelectionPage').style.display = 'none';
+            document.getElementById('profileAnalysisPage').style.display = 'flex';
+            updateProgress(1);
+        });
+
+        // Sistema de Análise de Perfil
+        let currentStep = 1;
+        const totalSteps = 6;
+        const answers = {};
+       
+        function updateProgress(step) {
+            const progress = (step / totalSteps) * 100;
+            document.getElementById('analysisProgress').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `Passo ${step} de ${totalSteps}`;
+        }
+       
+        function showStep(step) {
+            document.querySelectorAll('.analysis-step').forEach(stepElement => {
+                stepElement.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            currentStep = step;
+            updateProgress(step);
+        }
+       
+        function setupOptionCards(step) {
+            const optionCards = document.querySelectorAll(`#step${step} .option-card`);
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    optionCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const value = this.getAttribute('data-value');
+                    answers[`step${step}`] = value;
+                   
+                    switch(step) {
+                        case 1: userProfile.objective = value; break;
+                        case 2: userProfile.learningStyle = value; break;
+                        case 3: userProfile.weeklyHours = parseInt(value); break;
+                        case 5: userProfile.personalGoal = value; break;
+                        case 6: userProfile.studyEnvironment = value; break;
+                    }
+                });
+            });
+        }
+       
+        for (let i = 1; i <= totalSteps; i++) {
+            setupOptionCards(i);
+        }
+       
+        // Configurar navegação entre passos
+        document.getElementById('nextStep1').addEventListener('click', function() {
+            if (!answers.step1) {
+                alert('Por favor, selecione uma opção antes de continuar.');
+                return;
+            }
+            showStep(2);
+        });
+       
+        document.getElementById('nextStep2').addEventListener('click', function() {
+            if (!answers.step2) {
+                alert('Por favor, selecione uma opção antes de continuar.');
+                return;
+            }
+            showStep(3);
+        });
+       
+        document.getElementById('nextStep3').addEventListener('click', function() {
+            if (!answers.step3) {
+                alert('Por favor, selecione uma opção antes de continuar.');
+                return;
+            }
+            showStep(4);
+        });
+       
+        document.getElementById('nextStep4').addEventListener('click', function() {
+            const month = document.getElementById('startMonth').value;
+            const year = document.getElementById('startYear').value;
+           
+            if (!month || !year) {
+                alert('Por favor, selecione o mês e ano de início.');
+                return;
+            }
+           
+            userProfile.startMonth = month;
+            userProfile.startYear = year;
+            showStep(5);
+        });
+       
+        document.getElementById('nextStep5').addEventListener('click', function() {
+            if (!answers.step5) {
+                alert('Por favor, selecione uma opção antes de continuar.');
+                return;
+            }
+            showStep(6);
+        });
+       
+        document.getElementById('prevStep2').addEventListener('click', function() { showStep(1); });
+        document.getElementById('prevStep3').addEventListener('click', function() { showStep(2); });
+        document.getElementById('prevStep4').addEventListener('click', function() { showStep(3); });
+        document.getElementById('prevStep5').addEventListener('click', function() { showStep(4); });
+        document.getElementById('prevStep6').addEventListener('click', function() { showStep(5); });
+       
+        // Analisar perfil e determinar animal
+        document.getElementById('analyzeProfile').addEventListener('click', function() {
+            if (!answers.step6) {
+                alert('Por favor, selecione uma opção antes de continuar.');
+                return;
+            }
+           
+            const animalProfile = calculateAnimalProfile();
+            userProfile.animalProfile = animalProfile.type;
+           
+            const completion = calculateCompletionDate();
+            userProfile.completionDate = completion.formatted;
+           
+            showResult(animalProfile, completion);
+        });
+       
+        function calculateAnimalProfile() {
+            let aguia = 0, lobo = 0, tubarao = 0, gato = 0;
+           
+            switch(userProfile.objective) {
+                case 'crescimento': tubarao += 3; aguia += 2; break;
+                case 'transicao': aguia += 3; lobo += 1; break;
+                case 'emprego': gato += 3; lobo += 2; break;
+                case 'conhecimento': aguia += 3; tubarao += 1; break;
+            }
+           
+            switch(userProfile.learningStyle) {
+                case 'pratico': tubarao += 3; gato += 1; break;
+                case 'teorico': aguia += 3; lobo += 1; break;
+                case 'visual': aguia += 2; gato += 3; break;
+                case 'colaborativo': lobo += 3; tubarao += 1; break;
+            }
+           
+            if (userProfile.weeklyHours >= 30) tubarao += 3;
+            else if (userProfile.weeklyHours >= 20) aguia += 3;
+            else if (userProfile.weeklyHours >= 10) lobo += 3;
+            else gato += 3;
+           
+            switch(userProfile.personalGoal) {
+                case 'notas': aguia += 3; tubarao += 1; break;
+                case 'rede': lobo += 3; gato += 2; break;
+                case 'pratica': tubarao += 3; gato += 1; break;
+                case 'velocidade': tubarao += 3; aguia += 2; break;
+            }
+           
+            switch(userProfile.studyEnvironment) {
+                case 'silencio': aguia += 3; break;
+                case 'organizado': aguia += 2; tubarao += 2; break;
+                case 'flexivel': gato += 3; lobo += 1; break;
+                case 'dinamico': lobo += 3; gato += 1; break;
+            }
+           
+            const scores = { aguia, lobo, tubarao, gato };
+            const maxScore = Math.max(aguia, lobo, tubarao, gato);
+            let dominantAnimal = '';
+           
+            if (aguia === maxScore) dominantAnimal = 'aguia';
+            else if (lobo === maxScore) dominantAnimal = 'lobo';
+            else if (tubarao === maxScore) dominantAnimal = 'tubarao';
+            else dominantAnimal = 'gato';
+           
+            return {
+                type: dominantAnimal,
+                scores: scores,
+                description: getAnimalDescription(dominantAnimal),
+                title: getAnimalTitle(dominantAnimal),
+                icon: getAnimalIcon(dominantAnimal)
+            };
+        }
+       
+        function getAnimalTitle(animal) {
+            switch(animal) {
+                case 'aguia': return 'Águia Estratégica';
+                case 'lobo': return 'Lobo Colaborativo';
+                case 'tubarao': return 'Tubarão Executor';
+                case 'gato': return 'Gato Adaptável';
+                default: return '';
+            }
+        }
+       
+        function getAnimalIcon(animal) {
+            switch(animal) {
+                case 'aguia': return '🦅';
+                case 'lobo': return '🐺';
+                case 'tubarao': return '🦈';
+                case 'gato': return '🐱';
+                default: return '';
+            }
+        }
+       
+        function getAnimalDescription(animal) {
+            switch(animal) {
+                case 'aguia':
+                    return 'Você tem visão ampla e estratégica. Aprende melhor com teoria sólida e planejamento. Valoriza a excelência acadêmica e tem grande capacidade de análise. Seu foco está em entender profundamente antes de agir.';
+                case 'lobo':
+                    return 'Você é colaborativo e aprende melhor em grupo. Valoriza relacionamentos e trabalha bem em equipe. Tem forte senso de comunidade e busca equilíbrio entre teoria e prática. Seu estilo é social e integrador.';
+                case 'tubarao':
+                    return 'Você é prático, objetivo e focado em resultados. Aprende fazendo e valoriza a aplicação imediata do conhecimento. Tem grande capacidade de execução e busca eficiência em tudo que faz.';
+                case 'gato':
+                    return 'Você é flexível, adaptável e aprende no seu próprio ritmo. Valoriza o conforto e a autonomia no aprendizado. Tem grande capacidade de se adaptar a diferentes situações e encontra soluções criativas.';
+                default:
+                    return '';
+            }
+        }
+       
+        function calculateCompletionDate() {
+            const monthNames = [
+                'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+            ];
+           
+            let startDate = new Date(
+                parseInt(userProfile.startYear),
+                parseInt(userProfile.startMonth) - 1,
+                1
+            );
+           
+            let adjustedDuration = userProfile.courseDuration;
+            if (userProfile.weeklyHours < 10) adjustedDuration += 6;
+            else if (userProfile.weeklyHours < 20) adjustedDuration += 3;
+           
+            let completionDate = new Date(startDate);
+            completionDate.setMonth(completionDate.getMonth() + adjustedDuration);
+           
+            return {
+                date: completionDate,
+                formatted: `${monthNames[completionDate.getMonth()]} de ${completionDate.getFullYear()}`,
+                duration: adjustedDuration
+            };
+        }
+       
+        function showResult(animalProfile, completion) {
+            updateProgress(totalSteps);
+           
+            document.querySelectorAll('.analysis-step').forEach(stepElement => {
+                stepElement.classList.remove('active');
+            });
+            document.getElementById('stepResult').classList.add('active');
+           
+            document.getElementById('animalIcon').textContent = animalProfile.icon;
+            document.getElementById('animalTitle').textContent = animalProfile.title;
+            document.getElementById('animalDescription').textContent = animalProfile.description;
+           
+            const statsContainer = document.getElementById('animalStats');
+            statsContainer.innerHTML = '';
+           
+            const animals = [
+                { name: 'Águia', score: animalProfile.scores.aguia, color: 'aguia' },
+                { name: 'Lobo', score: animalProfile.scores.lobo, color: 'lobo' },
+                { name: 'Tubarão', score: animalProfile.scores.tubarao, color: 'tubarao' },
+                { name: 'Gato', score: animalProfile.scores.gato, color: 'gato' }
+            ];
+           
+            animals.forEach(animal => {
+                const statDiv = document.createElement('div');
+                statDiv.className = `animal-stat stat-${animal.color}`;
+                statDiv.innerHTML = `
+                    <div class="stat-value">${animal.score}</div>
+                    <div class="stat-label">${animal.name}</div>
+                `;
+                statsContainer.appendChild(statDiv);
+            });
+           
+            document.getElementById('completionText').textContent =
+                `Baseado em sua dedicação de ${userProfile.weeklyHours} horas semanais, você deve concluir o curso de ${userProfile.courseName} em ${completion.formatted} (${completion.duration} meses).`;
+           
+            const recommendations = generateRecommendations(animalProfile.type);
+            document.getElementById('recommendations').textContent = recommendations;
+        }
+       
+        function generateRecommendations(animalType) {
+            switch(animalType) {
+                case 'aguia':
+                    return 'Recomendamos que você participe das aulas teóricas com atenção, faça anotações detalhadas e busque materiais complementares. Seu perfil se beneficia de estudos individuais e planejamento rigoroso.';
+                case 'lobo':
+                    return 'Sugerimos que você participe ativamente dos grupos de estudo, faça networking com colegas e professores, e busque projetos colaborativos. Seu aprendizado é potencializado pelo trabalho em equipe.';
+                case 'tubarao':
+                    return 'Recomendamos que você foque em projetos práticos, participe de simulações e busque estágios o quanto antes. Seu perfil aprende melhor através da ação e aplicação prática do conhecimento.';
+                case 'gato':
+                    return 'Sugerimos que você crie seu próprio ritmo de estudos, utilize diferentes formatos de conteúdo (vídeos, textos, podcasts) e busque ambientes confortáveis para aprender. Sua flexibilidade é sua maior força.';
+                default:
+                    return '';
+            }
+        }
+       
+        // Finalizar análise e acessar portal
+        document.getElementById('finishAnalysis').addEventListener('click', function() {
+            document.getElementById('profileAnalysisPage').style.display = 'none';
+            document.getElementById('mainPage').style.display = 'block';
+           
+            document.getElementById('userName').textContent = 'Pedro Jaques';
+            document.getElementById('userAvatar').src = 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80';
+           
+            document.getElementById('currentCourseTitle').textContent = userProfile.courseName;
+           
+            document.getElementById('animalProfileCard').style.display = 'block';
+            document.getElementById('dashboardAnimalIcon').textContent = getAnimalIcon(userProfile.animalProfile);
+            document.getElementById('dashboardAnimalTitle').textContent = getAnimalTitle(userProfile.animalProfile);
+            document.getElementById('dashboardAnimalDescription').textContent = getAnimalDescription(userProfile.animalProfile).split('.')[0] + '.';
+           
+            const badge = document.getElementById('animalBadge');
+            badge.textContent = getAnimalTitle(userProfile.animalProfile);
+            badge.style.backgroundColor = getAnimalColor(userProfile.animalProfile);
+            badge.style.color = 'white';
+           
+            function getAnimalColor(animal) {
+                switch(animal) {
+                    case 'aguia': return 'var(--aguia)';
+                    case 'lobo': return 'var(--lobo)';
+                    case 'tubarao': return 'var(--tubarao)';
+                    case 'gato': return 'var(--gato)';
+                    default: return 'var(--azul-tecnico)';
+                }
+            }
+           
+            updateCourseProgress();
+            loadCourseSubjects();
+           
+            // Atualizar informações na página de edição de perfil
+            document.getElementById('profileAnimalIcon').textContent = getAnimalIcon(userProfile.animalProfile);
+            document.getElementById('profileAnimalTitle').textContent = getAnimalTitle(userProfile.animalProfile);
+            document.getElementById('profileAnimalDesc').textContent = getAnimalDescription(userProfile.animalProfile).split('.')[0] + '.';
+        });
+       
+        function updateCourseProgress() {
+            const progress = Math.min(100, Math.floor(Math.random() * 30) + 65);
+            document.getElementById('courseProgressBar').style.width = `${progress}%`;
+            document.getElementById('courseProgressText').textContent = `${progress}%`;
+           
+            document.getElementById('statProgress').textContent = `${progress}%`;
+            document.getElementById('statCompleted').textContent = `${Math.floor(progress / 100 * 18)}/18`;
+            document.getElementById('statAverage').textContent = (8.0 + (Math.random() * 1.5)).toFixed(1);
+            document.getElementById('statPending').textContent = Math.floor(Math.random() * 5) + 1;
+        }
+       
+        function loadCourseSubjects() {
+            const subjects = {
+                seguranca: [
+                    { name: 'Introdução à Segurança do Trabalho', teacher: 'Prof. Dr. Carlos Silva', progress: 90 },
+                    { name: 'Legislação e Normas Regulamentadoras', teacher: 'Prof. Me. Roberto Almeida', progress: 85 },
+                    { name: 'Prevenção e Controle de Riscos', teacher: 'Prof. Dra. Ana Rodrigues', progress: 75 }
+                ],
+                enfermagem: [
+                    { name: 'Anatomia e Fisiologia', teacher: 'Prof. Dra. Maria Santos', progress: 85 },
+                    { name: 'Fundamentos de Enfermagem', teacher: 'Prof. Dr. João Silva', progress: 70 },
+                    { name: 'Primeiros Socorros', teacher: 'Prof. Me. Carla Oliveira', progress: 60 }
+                ],
+                informatica: [
+                    { name: 'Algoritmos e Programação', teacher: 'Prof. Dr. Paulo Costa', progress: 80 },
+                    { name: 'Redes de Computadores', teacher: 'Prof. Dra. Fernanda Lima', progress: 70 },
+                    { name: 'Banco de Dados', teacher: 'Prof. Me. Ricardo Souza', progress: 55 }
+                ],
+                administracao: [
+                    { name: 'Gestão de Pessoas', teacher: 'Prof. Dra. Sandra Alves', progress: 88 },
+                    { name: 'Contabilidade Geral', teacher: 'Prof. Dr. Marcelo Dias', progress: 72 },
+                    { name: 'Marketing Digital', teacher: 'Prof. Me. Tatiana Rocha', progress: 68 }
+                ]
+            };
+           
+            const grid = document.getElementById('coursesGrid');
+            grid.innerHTML = '';
+           
+            const courseSubjects = subjects[userProfile.course] || subjects.seguranca;
+           
+            courseSubjects.forEach(subject => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${subject.name}</h3>
+                    <p>${subject.teacher}</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: ${subject.progress}%; background-color: var(--azul-tecnico);"></div>
+                    </div>
+                    <p>${subject.progress}% concluído</p>
+                    <button class="btn play-video" data-video="ZAViKBXo_os" data-title="${subject.name}">
+                        <i class="fas fa-play-circle"></i> Assistir Aula
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+           
+            // Configurar eventos para os botões de vídeo
+            setupVideoButtons();
+        }
+
+        // Configurar eventos para botões de vídeo
+        function setupVideoButtons() {
+            document.querySelectorAll('.play-video').forEach(button => {
+                button.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video');
+                    const videoTitle = this.getAttribute('data-title');
+                   
+                    document.getElementById('videoTitle').textContent = videoTitle;
+                    document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    document.getElementById('videoModal').style.display = 'flex';
+                });
+            });
+        }
+
+        // Sistema de Chat
+        const teachers = {
+            carlos: {
+                name: 'Prof. Dr. Carlos Silva',
+                subject: 'Segurança do Trabalho',
+                status: 'online',
+                avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
+            },
+            ana: {
+                name: 'Prof. Dra. Ana Rodrigues',
+                subject: 'Prevenção de Acidentes',
+                status: 'online',
+                avatar: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
+            },
+            roberto: {
+                name: 'Prof. Me. Roberto Almeida',
+                subject: 'Legislação e Normas',
+                status: 'away',
+                avatar: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
+            }
+        };
+       
+        let currentTeacher = 'carlos';
+       
+        // Selecionar professor no chat
+        document.querySelectorAll('.teacher-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.teacher-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+               
+                currentTeacher = this.getAttribute('data-teacher');
+                const teacher = teachers[currentTeacher];
+               
+                document.getElementById('chatTeacherName').textContent = teacher.name;
+                document.getElementById('chatTeacherSubject').textContent = teacher.subject;
+                document.getElementById('chatStatus').className = `teacher-status status-${teacher.status}`;
+                document.getElementById('chatStatusText').textContent =
+                    teacher.status === 'online' ? 'Online' :
+                    teacher.status === 'away' ? 'Ausente' : 'Offline';
+               
+                loadChatMessages(currentTeacher);
+            });
+        });
+       
+        function loadChatMessages(teacherId) {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.innerHTML = '';
+           
+            const defaultMessages = [
+                {
+                    type: 'received',
+                    text: `Olá! Sou o ${teachers[teacherId].name.split(' ')[1]}. Como posso ajudá-lo hoje?`,
+                    time: '10:00 AM'
+                },
+                {
+                    type: 'sent',
+                    text: 'Bom dia, professor! Tenho uma dúvida sobre o conteúdo da última aula.',
+                    time: '10:02 AM'
+                },
+                {
+                    type: 'received',
+                    text: 'Claro! Fico feliz em ajudar. Qual aspecto específico você gostaria de esclarecer?',
+                    time: '10:03 AM'
+                }
+            ];
+           
+            defaultMessages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message message-${msg.type}`;
+                messageDiv.innerHTML = `
+                    <p>${msg.text}</p>
+                    <div class="message-time">${msg.time}</div>
+                `;
+                messagesContainer.appendChild(messageDiv);
+            });
+           
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+       
+        // Enviar mensagem
+        document.getElementById('sendMessage').addEventListener('click', sendMessage);
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+       
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+           
+            if (!message) return;
+           
+            const messagesContainer = document.getElementById('chatMessages');
+            const now = new Date();
+            const timeString = now.getHours().toString().padStart(2, '0') + ':' +
+                             now.getMinutes().toString().padStart(2, '0');
+           
+            const sentMessage = document.createElement('div');
+            sentMessage.className = 'message message-sent';
+            sentMessage.innerHTML = `
+                <p>${message}</p>
+                <div class="message-time">${timeString}</div>
+            `;
+            messagesContainer.appendChild(sentMessage);
+           
+            input.value = '';
+           
+            setTimeout(() => {
+                const responses = [
+                    "Entendi sua dúvida. Vamos analisar isso juntos.",
+                    "Ótima pergunta! Isso é fundamental para o entendimento do tema.",
+                    "Vou explicar isso com mais detalhes na próxima aula.",
+                    "Você poderia me dar mais contexto sobre sua dúvida?",
+                    "Isso é exatamente o que vamos abordar no próximo módulo.",
+                    "Recomendo que você revise o material da aula passada."
+                ];
+               
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+               
+                const receivedMessage = document.createElement('div');
+                receivedMessage.className = 'message message-received';
+                receivedMessage.innerHTML = `
+                    <p>${randomResponse}</p>
+                    <div class="message-time">${timeString}</div>
+                `;
+                messagesContainer.appendChild(receivedMessage);
+               
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000 + Math.random() * 2000);
+           
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Sistema de Navegação
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+               
+                document.querySelectorAll('main').forEach(page => {
+                    page.style.display = 'none';
+                });
+               
+                document.getElementById(targetPage).style.display = 'block';
+               
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+               
+                document.getElementById('userDropdown').classList.remove('active');
+               
+                // Se for a página de edição de perfil, configurar navegação interna
+                if (targetPage === 'edit-profile') {
+                    setupProfileEditNavigation();
+                }
+               
+                // Se for a página de unidades curriculares, configurar botões de vídeo
+                if (targetPage === 'detailed-courses') {
+                    setTimeout(setupVideoButtons, 100);
+                }
+            });
+        });
+
+        // Configurar navegação interna da página de edição de perfil
+        function setupProfileEditNavigation() {
+            document.querySelectorAll('.profile-edit-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                   
+                    document.querySelectorAll('.profile-edit-nav a').forEach(a => {
+                        a.classList.remove('active');
+                    });
+                   
+                    this.classList.add('active');
+                   
+                    const section = this.getAttribute('data-section');
+                   
+                    document.querySelectorAll('.edit-section').forEach(sec => {
+                        sec.classList.remove('active');
+                    });
+                   
+                    document.getElementById(`${section}-section`).classList.add('active');
+                });
+            });
+        }
+
+        // Menu dropdown do usuário
+        document.getElementById('userMenu').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('userDropdown').classList.toggle('active');
+        });
+       
+        // Fechar dropdown ao clicar fora
+        document.addEventListener('click', function() {
+            document.getElementById('userDropdown').classList.remove('active');
+        });
+
+        // Botão para alterar curso
+        document.getElementById('changeCourseBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('courseSelectionPage').style.display = 'flex';
+            document.getElementById('userDropdown').classList.remove('active');
+        });
+
+        // Botão de logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'flex';
+            document.getElementById('userDropdown').classList.remove('active');
+        });
+
+        // Sistema de Player de Vídeo
+        document.getElementById('closeVideo').addEventListener('click', function() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('videoPlayer').src = '';
+        });
+       
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                document.getElementById('videoModal').style.display = 'none';
+                document.getElementById('videoPlayer').src = '';
+            }
+        });
+
+        // Upload de foto de perfil
+        document.getElementById('avatarUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('profileEditAvatar').src = event.target.result;
+                    document.getElementById('userAvatar').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Inicializar página de edição de perfil quando carregada
+        if (document.getElementById('edit-profile')) {
+            setupProfileEditNavigation();
+        }
+
+        // Configurar eventos para todos os botões de vídeo dinamicamente
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('play-video') || e.target.closest('.play-video')) {
+                const button = e.target.classList.contains('play-video') ? e.target : e.target.closest('.play-video');
+                const videoId = button.getAttribute('data-video');
+                const videoTitle = button.getAttribute('data-title');
+               
+                if (videoId && videoTitle) {
+                    document.getElementById('videoTitle').textContent = videoTitle;
+                    document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    document.getElementById('videoModal').style.display = 'flex';
+                }
+            }
+        });
+       
+        // Inicializar botões de vídeo na página de unidades curriculares
+        setTimeout(setupVideoButtons, 500);
+    </script>
+</body>
+</html>
